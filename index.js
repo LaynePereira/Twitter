@@ -37,8 +37,17 @@ function changeCounter(event){
         
     }
     
-    // redimensionar campo de texto
+    // redimensionar campo de texto com reduce
     var lines = twitterText.value.split('\n');
-    twitterText.setAttribute('rows', lines.length);
+    var linesCount = lines.reduce((acum, line) => acum + Math.max(Math.ceil(line.length / 100), 1), 0);
     
+    //redimensionar campo de texto
+    /*var linesCount = 0;
+    for(var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        linesCount += Math.max(Math.ceil(line.length / 100), 1);
+    }*/
+    
+    twitterText.setAttribute('rows', linesCount);
+
 }
