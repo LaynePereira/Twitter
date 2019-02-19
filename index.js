@@ -20,9 +20,20 @@ twitterText.addEventListener('keyup', changeCounter);
 function changeCounter(event){
     var counterValue = MAX_LENGTH - twitterText.value.length;
     twitterCounter.textContent = counterValue;
-    if (counterValue === MAX_LENGTH) {
+    if (counterValue === MAX_LENGTH || counterValue < 0) {
         tweetButton.setAttribute('disabled', '');
     }else {
         tweetButton.removeAttribute ('disabled');
     }
+
+    if (twitterText.value.length > 130) {
+        twitterCounter.setAttribute ('class', 'red');
+    }else if (twitterText.value.length > 120) {
+        twitterCounter.setAttribute ('class', 'orange');
+    }else {
+        twitterCounter.setAttribute ('class', 'blue');
+
+    }
+
+
 }
