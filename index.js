@@ -5,14 +5,20 @@ var tweetButton = document.querySelector ('#tweetButton');
 var twitterList = document.querySelector ('#twitterList');
 var twitterCounter = document.querySelector ('#twitterCounter');
 
-
 tweetButton.addEventListener('click', addTweet);
 
 function addTweet(event) {
     var newLi = document.createElement('li');
-    newLi.textContent = twitterText.value;
+    var dateString = new Date().toLocaleTimeString().substring(0,5);    
+    var textEnters = twitterText.value.replace(/\n/g, '<br>');
+    
+    newLi.innerHTML = '[' + dateString +'] ' + textEnters;
     twitterList.appendChild(newLi);
-    twitterText.value = ''; 
+    twitterText.value = '';
+    changeCounter();
+    
+    /*twitterText.setAttribute('rows', 1);
+    tweetButton.setAttribute('disabled', '');*/
 }
 
 twitterText.addEventListener('keyup', changeCounter);
@@ -35,8 +41,7 @@ function changeCounter(event){
     }else {
         twitterCounter.setAttribute ('class', 'blue');
         
-    }
-    
+    }    
     // redimensionar campo de texto com reduce
     var lines = twitterText.value.split('\n');
     var linesCount = lines.reduce((acum, line) => acum + Math.max(Math.ceil(line.length / 100), 1), 0);
@@ -49,5 +54,5 @@ function changeCounter(event){
     }*/
     
     twitterText.setAttribute('rows', linesCount);
-
+    
 }
