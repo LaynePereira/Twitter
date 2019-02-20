@@ -1,24 +1,21 @@
 const MAX_LENGTH = 140;
 
-var twitterText = document.querySelector ('#twitterText');
-var tweetButton = document.querySelector ('#tweetButton');
-var twitterList = document.querySelector ('#twitterList');
-var twitterCounter = document.querySelector ('#twitterCounter');
+let twitterText = document.querySelector ('#twitterText');
+let tweetButton = document.querySelector ('#tweetButton');
+let twitterList = document.querySelector ('#twitterList');
+let twitterCounter = document.querySelector ('#twitterCounter');
 
 tweetButton.addEventListener('click', addTweet);
 
 function addTweet(event) {
-    var newLi = document.createElement('li');
-    var dateString = new Date().toLocaleTimeString().substring(0,5);    
-    var textEnters = twitterText.value.replace(/\n/g, '<br>');
+    let newLi = document.createElement('li');
+    let dateString = new Date().toLocaleTimeString().substring(0,5);    
+    let textEnters = twitterText.value.replace(/\n/g, '<br>');
     
     newLi.innerHTML = '[' + dateString +'] ' + textEnters;
     twitterList.appendChild(newLi);
     twitterText.value = '';
-    changeCounter();
-    
-    /*twitterText.setAttribute('rows', 1);
-    tweetButton.setAttribute('disabled', '');*/
+    changeCounter();    
 }
 
 twitterText.addEventListener('keyup', changeCounter);
@@ -26,33 +23,23 @@ twitterText.addEventListener('keyup', changeCounter);
 function changeCounter(event){
     var counterValue = MAX_LENGTH - twitterText.value.length;
     twitterCounter.textContent = counterValue;
-    // desabilitar o botão
+    
     if (counterValue === MAX_LENGTH || counterValue < 0) {
         tweetButton.setAttribute('disabled', '');
     }else {
         tweetButton.removeAttribute ('disabled');
-    }
-    
-    // change color
-    if (twitterText.value.length > 130) {
-        twitterCounter.setAttribute ('class', 'red');
-    }else if (twitterText.value.length > 120) {
-        twitterCounter.setAttribute ('class', 'orange');
-    }else {
-        twitterCounter.setAttribute ('class', 'blue');
-        
     }    
-    // redimensionar campo de texto com reduce
-    var lines = twitterText.value.split('\n');
-    var linesCount = lines.reduce((acum, line) => acum + Math.max(Math.ceil(line.length / 100), 1), 0);
-    
-    //redimensionar campo de texto
-    /*var linesCount = 0;
-    for(var i = 0; i < lines.length; i++) {
-        var line = lines[i];
-        linesCount += Math.max(Math.ceil(line.length / 100), 1);
-    }*/
-    
+    if (twitterText.value.length > 130) {
+        twitterCounter.setAttribute ('class', 'color3');
+    }else if (twitterText.value.length > 120) {
+        twitterCounter.setAttribute ('class', 'color2');
+    }else {
+        twitterCounter.setAttribute ('class', 'color1');        
+    }    
+    let linesCount = 0;
+    for(let i = 0; i < lines.length; i++) {
+        let line = lines[i];
+        linesCount += Math.max(Math.ceil(line.length / 100), 5);
+    }    
     twitterText.setAttribute('rows', linesCount);
-    
 }
