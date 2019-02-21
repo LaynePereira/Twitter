@@ -1,16 +1,11 @@
 body {
-    background-image: url(Imagens/background_img.jpg);
+    background-image: url(imagens/background_img.jpg);
     background-size: 100%;
     margin: 0%;
 }
 
 .main-title {
     position: fixed;
-    /* font-family: 'Indie Flower', cursive;
-    font-weight: 900;
-    font-size: 25px;
-    color: rgb(17, 17, 17);
-    text-align: center; */
     background-color: rgb(243, 237, 237);
     width: 100%;
 }
