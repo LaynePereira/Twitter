@@ -1,29 +1,49 @@
 body {
-    background-color: rgb(118, 238, 238);
-
+    background-image: url(Imagens/background\ img.jpg);
+    background-size: 100%;
+    margin: 0%;
 }
 
 .main-title {
-    display: inline;
-    font-family: 'Indie Flower', cursive;
+    position: fixed;
+    /* font-family: 'Indie Flower', cursive;
     font-weight: 900;
     font-size: 25px;
     color: rgb(17, 17, 17);
-    text-align: center;
+    text-align: center; */
+    background-color: rgb(243, 237, 237);
+    width: 100%;
+}
+
+#titulo {
+    margin: 0;
+    background-image: url(imagens/twitter_logo.png);
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 50px;
 }
 
 .container{
     margin: 25px;
     width: 100%;
-    display: flex;
-    /* justify-content: flex-end; */
+    display: flex;    
     flex-direction: column;
     
 }
 
 .tweet-form {
     font-family:'Coiny', cursive;
-    font-size: 15px;
+    font-size: 20px;
+    padding-left: 60px;
+    font-size: 150%;
+    color: white;
+}
+
+.form-title{
+    margin-bottom: 16px;
+    
 }
 
 #tweetButton {
@@ -31,39 +51,67 @@ body {
     color:white;
     background-color: #1da1f2;
     height:75%;
-    width: 10%;
+    width: 20%;
     border-radius:100px;
     font-weight: 800;
-    
+    font-size: 15px;
+    padding: 8px;
+    display: inline-block;
+    vertical-align: center;
+}
+
+#twitterCounter {
+    line-height: 31px;
+    margin-top: 4px;
+    vertical-align: center;
+    display: inline-block;
 }
 
 .profile-img {
-    height:40%;
-    width:60%;
-}
+    /* background-image: url("Imagens/profile.jpg"); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height:270px;
+    width:80%;
+} 
 
 .profile-img img {
-    height:100%;
+    height:115%;
     width: auto;
 }
 
-.color1 {
+.tweet {
+    background-color: #ffffff;
+    height:auto;
+    width:100%;
+    margin: 20px;
+}
+
+#twitterList li {
+    list-style:none;
+}
+
+.initial-color {
     color:blue;
 }
 
-.color2 {
+.warning-color {
     color:orange;
 }
 
-.color3 {
+.danger-color {
     color: red;
 }
 
-main {
+.content {
     display: flex;
-
+    padding: 100px;
 }
 
-
-
-
+#twitterText{
+    width: 60ch;
+    min-height: 50px;
+    font-size: 70%;
+    resize: vertical;
+}
