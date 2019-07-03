@@ -1,44 +1,55 @@
-const MAX_LENGTH = 140;
+const MAX_LENGTH = 140; 
 
-let twitterText = document.querySelector ('#twitterText');
-let tweetButton = document.querySelector ('#tweetButton');
-let twitterList = document.querySelector ('#twitterList');
-let twitterCounter = document.querySelector ('#twitterCounter');
+const twitterText = document.querySelector('#twitter-text');
+const tweetButton = document.querySelector('#tweet-button');
+const twitterList = document.querySelector('#twitter-list');
+const twitterCounter = document.querySelector('#twitter-counter');
 
-
-tweetButton.addEventListener('click', addTweet);
-
-function addTweet(event) {
-    let newLi = document.createElement('li');
-    newLi.classList.add("tweet");
-    let dateString = new Date().toLocaleTimeString().substring(0,5);    
-    let textEnters = twitterText.value.replace(/\n/g, '<br>');
-    
-    newLi.innerHTML = '(' + dateString +') ' + textEnters;
-    twitterList.appendChild(newLi);
-    twitterText.value = '';
+tweetButton.addEventListener('click', (event)=>{
+    event.preventDefault();
+    addTweet();
     changeCounter();
+    resetConfig();
+} );
+
+twitterText.addEventListener('keyup', ()=> {
+    let counterValue = MAX_LENGTH - twitterText.value.length;
+    changeCounter(counterValue);
+    disableButton();
+    resizeTextarea();
+});
+
+function addTweet() {
+    const dateString = new Date().toLocaleTimeString().substring(0,5);    
+    const textEnters = twitterText.value.replace(/\n/g, '<br>'); 
+    twitterList.innerHTML += tweetTemplate(textEnters, dateString);
+    twitterText.value = '';
 }
 
-twitterText.addEventListener('keyup', changeCounter);
+function tweetTemplate(tweet, date){
+    return `<li class='tweet'>  <span>${date}</span> ${tweet}</li>`
+}
 
-function changeCounter(event){
-    let counterValue = MAX_LENGTH - twitterText.value.length;
-    twitterCounter.textContent = counterValue;
-    
-    if (counterValue === MAX_LENGTH || counterValue < 0) {
-        tweetButton.setAttribute('disabled', '');
-    }else {
-        tweetButton.removeAttribute ('disabled');
-    }    
+function changeCounter(counter){
+    twitterCounter.textContent = counter;
     if (twitterText.value.length > 130) {
         twitterCounter.setAttribute ('class', 'danger-color');
     }else if (twitterText.value.length > 120) {
         twitterCounter.setAttribute ('class', 'warning-color');
     }else {
         twitterCounter.setAttribute ('class', 'initial-color');        
-    }    
-    
+    } 
+}
+
+function disableButton(counter){
+    if (counter === MAX_LENGTH) {
+        tweetButton.setAttribute('disabled', '');
+    }else {
+        tweetButton.removeAttribute ('disabled');
+    }
+}
+
+function resizeTextarea(){
     let lines = twitterText.value.split('\n');
     let linesCount = 0;
     
@@ -47,4 +58,9 @@ function changeCounter(event){
         linesCount += Math.max(Math.ceil(line.length / 50), 1);
     }    
     twitterText.setAttribute('rows', linesCount);
+}
+
+function resetConfig(){
+    tweetButton.setAttribute('disabled', '');
+    twitterCounter.textContent = MAX_LENGTH;
 }

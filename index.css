@@ -41,7 +41,7 @@ body {
     
 }
 
-#tweetButton {
+#tweet-button {
     border: none;
     color:white;
     background-color: #1da1f2;
@@ -55,7 +55,7 @@ body {
     vertical-align: center;
 }
 
-#twitterCounter {
+#twitter-counter {
     line-height: 31px;
     margin-top: 4px;
     vertical-align: center;
@@ -83,7 +83,7 @@ body {
     margin: 20px;
 }
 
-#twitterList li {
+#twitter-list li {
     list-style:none;
 }
 
@@ -104,7 +104,7 @@ body {
     padding: 100px;
 }
 
-#twitterText{
+#twitter-text{
     width: 60ch;
     min-height: 50px;
     font-size: 70%;
