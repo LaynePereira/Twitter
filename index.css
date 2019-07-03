@@ -63,7 +63,6 @@ body {
 }
 
 .profile-img {
-    /* background-image: url("Imagens/profile.jpg"); */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
