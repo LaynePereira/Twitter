@@ -30,10 +30,8 @@ function tweetTemplate(tweet, date){
     return `<li class='tweet'>  <span>${date}</span> ${tweet}</li>`
 }
 
-//função de contagem
 function changeCounter(counter){
     twitterCounter.textContent = counter;
-    // color change letters    
     if (twitterText.value.length > 130) {
         twitterCounter.setAttribute ('class', 'danger-color');
     }else if (twitterText.value.length > 120) {
@@ -43,7 +41,6 @@ function changeCounter(counter){
     } 
 }
 
-// desabilitar o botão tweet
 function disableButton(counter){
     if (counter === MAX_LENGTH) {
         tweetButton.setAttribute('disabled', '');
@@ -52,7 +49,6 @@ function disableButton(counter){
     }
 }
 
-//redimensionar campo de texto
 function resizeTextarea(){
     let lines = twitterText.value.split('\n');
     let linesCount = 0;
@@ -68,5 +64,3 @@ function resetConfig(){
     tweetButton.setAttribute('disabled', '');
     twitterCounter.textContent = MAX_LENGTH;
 }
-// redimensionar campo de texto com 'reduce'
-//let linesCount = lines.reduce((acum, line) => acum + Math.max(Math.ceil(line.length / 100), 5), 0);
