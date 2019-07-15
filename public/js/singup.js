@@ -32,5 +32,5 @@ function handleErrors(error) {
 }
 
 function createProfile(userId) {
-  window.location = `create-profile.html?id=${userId}`;
+  window.location = `feed.html?id=${userId}`;
 }

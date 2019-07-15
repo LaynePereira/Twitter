@@ -64,3 +64,12 @@ function resetConfig(){
     tweetButton.setAttribute('disabled', '');
     twitterCounter.textContent = MAX_LENGTH;
 }
+
+// function signOut(){
+//     firebase.auth().signOut()
+//     .then(function() {
+//         window.location = "index.html"
+//     })
+//     .catch(function(error) {
+//     })
+// }
