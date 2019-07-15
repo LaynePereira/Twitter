@@ -1,8 +1,5 @@
 ![Twirttex](/public/imagens/Twirttex.jpg)
 
-## Link para web
-> https://twitter-45efd.firebaseapp.com/
-
 ## Introdução
 
 > Neste projeto, foi replicado o feed de notícias do Twitter, utilizando um fluxo de versões. 
