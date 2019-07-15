@@ -1,16 +1,5 @@
 ![Twirttex](/puclic/imagens/Twirttex.jpg)
 
-## Índice
-
-* [Introdução](#Introdução)
-* [Versão 0.0.1](#Versão_0.0.1)
-* [Versão 0.0.2](#Versão_0.0.2)
-* [Versão 0.0.3](#Versão_0.0.3)
-* [Versão 0.0.4](#Versão_0.0.4)
-* [Versão 0.0.5](#Versão_0.0.5)
-* [Versão 0.0.6 ](#Versão_0.0.6)
-* [Versão 0.1.0](#Versão_0.1.0)
-
 ## Introdução
 
 > Neste projeto, foi replicado o feed de notícias do Twitter, utilizando um fluxo de versões. 
