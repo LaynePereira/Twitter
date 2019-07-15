@@ -1,4 +1,4 @@
-![Twirttex](/puclic/imagens/Twirttex.jpg)
+![Twirttex](/public/imagens/Twirttex.jpg)
 
 ## Introdução
 
